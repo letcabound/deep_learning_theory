@@ -1,5 +1,5 @@
 # 1 Convolution
-## 1.1 Conv2D
+## 1.1 Conv2D（卷积，downsample）
 - 示意图<br>
 ![figure](images/op-figure1.jpg)
 
@@ -17,7 +17,7 @@ input = torch.randn(20, 16, 50, 100)
 output = m(input)
 ```
 
-## 1.2 ConvTranspose2d
+## 1.2 ConvTranspose2d（反卷积, upsample）
 - 图示 <br>
 ![figure2](images/op-figure2.jpg)
 
