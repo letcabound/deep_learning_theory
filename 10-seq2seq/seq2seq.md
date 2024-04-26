@@ -167,7 +167,7 @@
 ## 4.3 Decoder的预训练
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前面提到过，Decoder其实是一种**条件语言模型(Conditional LM)**。条件语言模型意味着Decoder 训练好了之后，具有了某种能力，可以处理不同的Context vector 产生不同的结果。此时，Decoder 无需再变化，只需要更新Context vector就好了。<br>
 
-**思考：这是否意味着Decoder模型学到了一些通用的知识呢？？？** <br>
+**思考：这是否意味着Decoder模型学到了一些不同类型任务的通用的知识呢？？？** <br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实际工程中，在训练过程中常使用**预训练**的语言模型来初始化Decoder的参数，原因如下：<br>
 
