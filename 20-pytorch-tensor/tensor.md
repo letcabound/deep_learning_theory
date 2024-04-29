@@ -1,7 +1,8 @@
 # [pytorch tensor](https://pytorch.org/docs/stable/tensors.html)
 A torch.Tensor is a multi-dimensional matrix containing elements of a single data type. <br>
 
-# 1 创建pytorch tensor
+# 1 创建pytorch tensor 的两种方式
+## 1）通过value生成，如 python list或tuple，numpy的ndarray。2）通过shape生成，如 randint, ones, zeros, ones_like, empty_like 等。
 
 ## 1.1 用torch.Tensor 创建
 ```python
