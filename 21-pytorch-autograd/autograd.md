@@ -62,7 +62,7 @@ b = x + z
 print(f"Does `b` require gradients?: {b.requires_grad}")
 ```
 
-## 2.3 detach 隔离功能
+## 2.3 detach 隔离功能，需要tensor的值用于后续计算，但是不希望tensor的梯度影响模型参数
 ```python
 import torch
 # 创建一个需要梯度的张量
