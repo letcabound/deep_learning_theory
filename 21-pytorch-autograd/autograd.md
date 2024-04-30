@@ -91,7 +91,9 @@ def set_no_grad():
     print("x grad: ", x.grad)
     
     # torch.set_grad_enabled(False) # 全局设置 requires_grad = False
-    
+
+    # 在这个模块下的所有tensor，都不会与计算图关联
+    #   常用于模型的 推理 过程，冻住训练好的模型参数，测试模型性能。
     with torch.no_grad():
         z = torch.matmul(x, w)+b
     
