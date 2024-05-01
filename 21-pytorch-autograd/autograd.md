@@ -244,9 +244,9 @@ b = a.mul(c)
 b.backward()
 ```
 
-## 2.9 customer 自定义自己的反向传播函数
+## 2.9 自定义反向传播函数
 ```python
- class Exp(Function):
+ class Exp(torch.autograd.Function):
      @staticmethod
      def forward(ctx, i):
          result = i.exp()
