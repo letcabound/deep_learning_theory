@@ -50,8 +50,8 @@ def nn_demo():
 - 代码案例1：<br>
 ``` python
 class FullConnect(nn.Module):
-    def __init__(self, k, n):
-        super(FullConnect, self).__init__() # 初始化父类
+    def __init__(self):
+        super().__init__() # 初始化父类
         self.full_connect1 = nn.Linear(30, 20) 
         self.full_connect2 = nn.Linear(20, 10)
         self.activation1 = nn.ReLU()
@@ -88,7 +88,7 @@ def full_connect_demo():
 ```python
 class ModuleDemo(torch.nn.Module):
     def __init__(self):
-        super(ModuleDemo, self).__init__()
+        super().__init__()
         self.linear_1 = torch.nn.Linear(2, 3)
         self.act_1 = torch.nn.LeakyReLU()
         self.linear_2 = torch.nn.Linear(3, 2)
