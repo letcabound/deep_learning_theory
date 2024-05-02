@@ -24,6 +24,7 @@ optimizer = optim.Adam([var1, var2], lr=0.0001)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如，当需要指定每个层的学习率时，这非常有用：<br>
 ```python
+# 设 model 模型包含 base、classifier 等多个子模块。
 optim.SGD([
                 {'params': model.base.parameters()},
                 {'params': model.classifier.parameters(), 'lr': 1e-3}
