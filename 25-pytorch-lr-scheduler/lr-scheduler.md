@@ -1,5 +1,5 @@
 # learning rate 调整方案
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在深度学习中，学习率调整是一种重要的技术，用于优化模型的训练过程。学习率是控制模型参数更新幅度的超参数，它决定了在每次参数更新中应用的梯度下降的步长。合适的学习率调整策略可以帮助模型更快地收敛或避免陷入局部最优点。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在深度学习中，学习率调整是一种重要的技术，用于优化模型的训练过程。学习率是控制模型参数更新幅度的超参数，它决定了在每次参数更新中应用的梯度下降的步长。合适的学习率调整策略可以帮助模型更快地收敛或避免陷入局部最优点。   部分调度器的学习率采用 一开始小中间变大最后再变小 的策略：一开始学习率小一些是因为在预热阶段，一下子跑太大容易跑偏了，最后阶段小一些是因为已经处于极值点附近，学习率态度会反复震荡，难以收敛  <br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学习率调度（Learning Rate Scheduling）：学习率调度是根据训练的迭代次数或验证误差的变化动态地调整学习率。<br>
 
@@ -72,8 +72,7 @@ for epoch in range(100):
     scheduler.step()
 ```
 
-**思考：为什么要用 last_epoch ：** 1)跟踪学习率，在训练开始的时候last_epoch=-1，使用初始学习率；在训练过程中，调度器通过last_epoch来更新学习率。2）断点恢复训练，训如果要将暂停训练的模型继续训练，last_epoch信息可以帮助调度器判断当前处于哪个epoch并计算这个epoch对应的学习率是多少 <br>
-**有些调度器，学习率一开始小中间变大最后再变小： ** 一开始学习率小一些是因为在预热阶段，一下子跑太大容易跑偏了，最后阶段小一些是因为已经处于极值点附近，学习率态度会反复震荡，难以收敛 <br>
+**思考：为什么要用 last_epoch ：** 1)跟踪学习率，在训练开始的时候last_epoch=-1，使用初始学习率；在训练过程中，调度器通过last_epoch来更新学习率。2）断点恢复训练，训如果要将暂停训练的模型继续训练，last_epoch信息可以帮助调度器判断当前处于哪个epoch并计算这个epoch对应的学习率是多少。 <br>
 
 ## 3.2 lr_scheduler.MultiplicativeLR
 - [pytorch link](https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.MultiplicativeLR.html#torch.optim.lr_scheduler.MultiplicativeLR)
