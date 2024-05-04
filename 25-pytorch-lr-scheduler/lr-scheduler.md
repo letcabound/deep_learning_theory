@@ -309,7 +309,7 @@ $$\eta_{t}=\eta_{\min }+\frac{1}{2}(\eta_{\max }-\eta_{\min })(1+\cos (\frac{T_{
 - 图示：<br>
 ![figure7](images/lr-figure7.jpg)
 
-- 可有效解决鞍点问题：<br>
+- 可有效解决鞍点问题：（在 鞍点 位置，一个方向上为极小值，梯度近似为0，在另一个方向上为极大值，梯度也近似为0. 梯度近似为0不易更新梯度但鞍点很明显不是有优点位置）<br>
 ![figure8](images/lr-figure8.jpg)
 
 - 伪代码展示：<br>
