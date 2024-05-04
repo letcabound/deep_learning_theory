@@ -72,7 +72,7 @@ for epoch in range(100):
     scheduler.step()
 ```
 
-**思考：为什么要用 last_epoch 呢？？？**  <br>
+**思考：为什么要用 last_epoch ：** 1)跟踪学习率，在训练开始的时候last_epoch=-1，使用初始学习率；在训练过程中，调度器通过last_epoch来更新学习率。2）断点恢复训练，训如果要将暂停训练的模型继续训练，last_epoch信息可以帮助调度器判断当前处于哪个epoch并计算这个epoch对应的学习率是多少 <br>
 
 ## 3.2 lr_scheduler.MultiplicativeLR
 - [pytorch link](https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.MultiplicativeLR.html#torch.optim.lr_scheduler.MultiplicativeLR)
