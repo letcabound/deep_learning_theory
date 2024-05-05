@@ -46,7 +46,7 @@ python3 task_sequence_labeling_ner_crf.py
 - 纯 Decoder 模型（例如 GPT），又称自回归 (auto-regressive) Transformer 模型；
 - Encoder-Decoder 模型（例如 BART、T5），又称 Seq2Seq (sequence-to-sequence) Transformer 模型。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transformer 模型本质上都是预训练语言模型，大都采用自监督学习 (Self-supervised learning) 的方式在大量生语料上进行训练，也就是说，训练这些 Transformer 模型完全不需要人工标注数据。一般说来，下面两个常用的预训练任务：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transformer 模型本质上都是预训练语言模型，大都采用自监督学习 (Self-supervised learning) 的方式在大量生语料上进行训练，也就是说，这些 Transformer 模型在预训练阶段完全不需要人工标注数据。一般说来，下面两个常用的预训练任务：<br>
 
 - 基于句子的前 n 个词来预测下一个词，因为输出依赖于过去和当前的输入，因此该任务被称为因果语言建模 (causal language modeling), 图示如下：<br>
 ![figure2](images/figure2.jpg)
