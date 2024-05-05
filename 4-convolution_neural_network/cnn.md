@@ -87,7 +87,7 @@
 ![figure7](images/cnn-figure7.jpg)
 
 # 7 分组卷积(group convolution)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2012 年，AlexNet 论文中最先提出来的概念，当时主要为了解决 GPU 显存不足问题。显存不足导致单次的卷积计算量不能过大即卷积核的shape不能太大，如果能够只使用小shape的卷积核达到和使用大shape卷积核一样的output shape，那就认为这种操作解决了GPU显存不足的问题.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2012 年，AlexNet 论文中最先提出来的概念，当时主要为了解决 GPU 显存不足问题。显存不足导致单次的卷积计算量不能过大即卷积核的** channel **不能太大，如果能够只使用小shape的卷积核达到和使用大shape卷积核一样的output shape，那就认为这种操作解决了GPU显存不足的问题.<br>
 ![figure6](images/cnn-figure6.jpg)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;卷积核被分成不同的组，每组负责对相应的输入层进行卷积计算，最后再进行合并。如上图，卷积核被分成前后两个组，前半部分的卷积组负责处理前半部分的输入层，后半部分的卷积组负责处理后半部分的输入层，最后将结果合并组合。<br>
