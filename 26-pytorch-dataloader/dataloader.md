@@ -236,7 +236,7 @@ for i in range(len(transformed_dataset)):
 
 ```
 
-## 4.3 小结
+## 4.3 小结<半角双空格-换行；全角双空格-缩进两字符>
 ### 4.3.1 torchvision.datasets 和 torch.utils.data的dataset区别：
     torchvision中集成了很多现有的CV领域的数据集，其中的数据集是 torch.utils.data.dataset 的子类。
     torch.utils.data中的 dataset和dataloader 是一个更通用的 数据集定义和加载 的工具类。
