@@ -1,7 +1,7 @@
 # 1 Dataset
 - [pytorch link](https://github.com/pytorch/pytorch/blob/main/torch/utils/data/dataset.py)
 
-# 2 定义自己的数据集
+# 2 torch中的dataset - 自定义数据集
 ```python
 # 定义数据集
 class MyDataset(data.Dataset):
@@ -54,7 +54,7 @@ for batch_idx, (data, target) in enumerate(train_dataloader):
 ```
 
 # 4 torchvision 
-## 4.1 torchvision 中的dataset
+## 4.1 torchvision.datasets -  torchvision中集成的现有CV数据集
 ```python
 from torchvision import datasets
 from torchvision.transforms import ToTensor
@@ -80,7 +80,7 @@ def data_download():
 # image.save('new_image.jpg') # 保存图像
 ```
 
-## torchvision 中的 transforms
+## 4.2 torchvision 中的 transforms
 ```python
 ######################################################################
 # Transforms
