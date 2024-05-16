@@ -241,7 +241,7 @@ for i in range(len(transformed_dataset)):
     torchvision中集成了很多现有的CV领域的数据集，其中的数据集是 torch.utils.data.dataset 的子类。
     torch.utils.data中的 dataset和dataloader 是一个更通用的 数据集定义和加载 的工具类。
 ### 4.3.2 torch.utils.data 中 dataset和dataloader 的区别：
-dataset：
+dataset:  
 　　所有数据集都要继承torch.utils.data类，然后实现 __getitem__ 和 __len__ 方法；  
 　　__len__方法 返回自定义数据集的长度，  
 　　__getitem__方法 返回index参数对应的 data和label，要根据给出的data和annotation文件做出适配  
