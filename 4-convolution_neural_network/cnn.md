@@ -154,5 +154,36 @@ eg：X.Shape : torch.size([32,64,28,28])   offset.shape : torch.size([32,18,28,2
 **思考：工程上3D卷积 input 和weight 分别是 多少维的？？？** <br>
 **思考：1D 卷积的情况呢？**
 
-# 14 参考链接
+# 14 1D 卷积，CNN处理文本数据
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1D卷积核只有一个维度，沿着输入文本的一个方向滑动。1D卷积的通道特征为文本数据的embedding维度。对于NLP的输入数据[N, T, E]，卷积会沿着T维度滑动，E相当于卷积的通道数。<br>
+```
+class TextCNN(nn.Module):
+    def __init__(self, vocab_size, embed_size, kernel_size, num_channels,
+                 **kwargs):
+        super().__init__(**kwargs)
+        self.embedding = nn.Embedding(vocab_size, embed_size)
+        self.constant_embedding = nn.Embedding(vocab_size, embed_size)  # 该嵌入层不需要训练参数
+        self.dropout = nn.Dropout(0.5)
+        # 三个一维卷积层最后会将channel维度拼接在一起
+        self.decoder = nn.Linear(sum(num_channels), 2)
+        self.pool = nn.AdaptiveAvgPool1d(1)
+        self.relu = nn.ReLU()
+        # 三个一维卷积层对应的 channel_in, channel_out, kernel_size
+        self.convs = nn.ModuleList()
+        for c, k in zip(num_channels, kernel_size):
+            self.convs.append(nn.Conv1d(2 * embed_size, c, k))
+
+    def forward(self, inputs):
+        # 每个嵌入层都是 [batch, 词元数量，词向量维度]
+        embeddings = torch.cat(
+            (self.embedding(inputs), self.constant_embedding(inputs)), dim=2)
+        embeddings = embeddings.permute(0, 2, 1)  # 卷积操作之前，先将channel维度移到前面
+        encoding = torch.cat([
+            torch.squeeze(self.relu(self.pool(conv(embeddings))), dim=-1)
+            for conv in self.convs], dim=1)
+        outputs = self.decoder(self.dropout(encoding))
+        return outputs
+```
+
+# 15 参考链接
 [参考文献](https://arxiv.org/pdf/1603.07285.pdf)
