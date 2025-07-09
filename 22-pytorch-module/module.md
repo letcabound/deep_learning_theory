@@ -16,12 +16,12 @@ def nn_demo():
     2. 网络结构的搭建：激活函数 + 损失函数 + 权重初始化；
     3. 优化器选择；
     4. 训练策略：学习率的控制 + 梯度清0 + 更新权重 + 正则化；
+        注：激活函数属于 无状态(stateless)模块，即 内部没有可训练的参数。所以，该模块 只需在 __init__中定义一次就可在 forward方法中多次使用。
     '''
     input = torch.tensor([5, 10]).reshape(1, 2).to(torch.float32)
     linear_1 = torch.nn.Linear(2, 3)
     act_1 = torch.nn.Sigmoid()
     linear_2 = torch.nn.Linear(3, 2)
-    act_2 = torch.nn.Sigmoid()
     criteration = torch.nn.MSELoss()
     
     optimizer = torch.optim.SGD([{"params": linear_1.parameters()},
@@ -33,7 +33,7 @@ def nn_demo():
         x = linear_1(input)
         x = act_1(x)
         x = linear_2(x)
-        output = act_2(x)
+        output = act_1(x)
         loss = criteration(output, label)
         loss.backward()
         optimizer.step() # 更新权重      
